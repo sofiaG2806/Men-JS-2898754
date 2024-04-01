@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miscelánea Ejercicios Programación Python</title>
+    <style>
+        /* Estilos opcionales para el menú */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px 20px;
+            background-color: #cc2dbc;
+            border-bottom: 1px solid #2ba0c0;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: #ef2d77;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Miscelánea Ejercicios Programación Python</h1>
+
+<script>
+
+var menu = "Menú\n"; 
+menu += "1. Operadores\n";
+menu += "2. Condicionales\n";
+menu += "3. Ciclos\n";
+menu += "99. Salir y ver resultados\n"; 
+menu += "Ingrese una opción:\n\n"; 
+
+var opcion = 0; 
+
+do {
+  opcion = parseInt(prompt(menu)); 
+  switch (opcion) {
+    case 1:
+      operadores();
+      break;
+    case 2:
+      condicionales();
+      break;
+    case 3:
+      ciclos();
+      break;
+    case 99:
+      document.write("<h2>Programa finalizado.</h2>");
+      break;
+    default:
+      document.write("<h2>Opción inválida. Por favor, elija una opción válida.</h2>");
+  }
+} while (opcion != 99);
+
+function operadores() {
+  var subMenuOperadores = "Operadores\n"; 
+  subMenuOperadores += "1. Calcular el área de un triángulo.\n";
+  subMenuOperadores += "2. Ingresar dos números por teclado y sumarlos.\n";
+  subMenuOperadores += "3. Ingresar un número y visualizar el número elevado al cuadrado.\n";
+  subMenuOperadores += "4. Convertir de euros a dólares.\n";
+  subMenuOperadores += "5. Calcular el área y el perímetro de un cuadrado.\n";
+  subMenuOperadores += "6. Calcular el área y el volumen de un cilindro.\n";
+  subMenuOperadores += "7. Calcular la longitud y el área de una circunferencia.\n";
+  subMenuOperadores += "8. Calcular el promedio de tres números ingresados por teclado.\n";
+
+  var opcionOperadores = parseInt(prompt(subMenuOperadores)); 
+  switch (opcionOperadores) {
+    case 1:
+    var base = parseFloat(prompt("Ingrese la longitud de la base del triángulo:"));
+    var altura = parseFloat(prompt("Ingrese la altura del triángulo:"));
+
+    // Verificar si los valores ingresados son válidos
+    if (!isNaN(base) && !isNaN(altura) && base > 0 && altura > 0) {
+        var area = (base * altura) / 2;
+        document.write(`El área del triángulo es: ${area}`);
+    } else {
+        document.write("Los valores ingresados no son válidos. Por favor, ingrese valores numéricos positivos. "); 
+    }
+    break;
+  
+      
+    case 2:
+       var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+            var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+            // Verificar si los valores ingresados son válidos
+            if (!isNaN(numero1) && !isNaN(numero2)) {
+                var suma = numero1 + numero2;
+                document.write(`La suma de ${numero1} y ${numero2} es: ${suma}`);
+            } else {
+                document.write("Los valores ingresados no son válidos. Por favor, ingrese números válidos. ");
+            }
+      break;
+
+    case 3:
+      // Solicitar al usuario que ingrese un número
+var numero = parseFloat(prompt("Ingrese un número:"));
+
+// Verificar si el valor ingresado es válido
+if (!isNaN(numero)) {
+    // Calcular el cuadrado del número
+    var cuadrado = numero * numero;
+    
+    // Mostrar el resultado en pantalla utilizando document.write()
+    document.write("El cuadrado de " + numero + " es: " + cuadrado);
+} else {
+    // Mostrar un mensaje de error si el valor ingresado no es un número válido
+    document.write("El valor ingresado no es válido. Por favor, ingrese un número válido.");
+}
+      break;
+      
+
+
+    case 4:
+      // Implementar algoritmo para convertir de euros a dólares
+      // Solicitar al usuario que ingrese la cantidad en euros
+var euros = parseFloat(prompt("Ingrese la cantidad en euros:"));
+
+// Verificar si el valor ingresado es válido
+if (!isNaN(euros) && euros >= 0) {
+    // Tasa de conversión de euros a dólares (suponiendo 1 euro = 1.20 dólares)
+    var tasaConversion = 1.20;
+    
+    // Calcular la cantidad en dólares
+    var dolares = euros * tasaConversion;
+    
+    // Mostrar el resultado en pantalla utilizando document.write()
+    document.write(euros + " euros equivalen a " + dolares.toFixed(2) + " dólares.");
+} else {
+    // Mostrar un mensaje de error si el valor ingresado no es válido
+    document.write("La cantidad ingresada no es válida. Por favor, ingrese una cantidad en euros válida.");
+}
+      break;
+
+
+    case 5:
+      // Implementar algoritmo para calcular el área y perímetro de un cuadrado
+    // Solicitar al usuario que ingrese la longitud del lado del cuadrado
+var lado = parseFloat(prompt("Ingrese la longitud del lado del cuadrado en metros:"));
+
+// Verificar si el valor ingresado es válido
+if (!isNaN(lado) && lado > 0) {
+    // Calcular el área del cuadrado (lado * lado)
+    var area = lado * lado;
+
+    // Calcular el perímetro del cuadrado (4 * lado)
+    var perimetro = 4 * lado;
+
+    // Mostrar los resultados en pantalla utilizando document.write()
+    document.write("El área del cuadrado es: " + area.toFixed(2) + " metros cuadrados.<br>");
+    document.write("El perímetro del cuadrado es: " + perimetro.toFixed(2) + " metros.");
+} else {
+    // Mostrar un mensaje de error si el valor ingresado no es válido
+    document.write("La longitud del lado ingresada no es válida. Por favor, ingrese un valor numérico positivo.");
+}
+      break;
+
+
+    case 6:
+      // Implementar algoritmo para calcular el área y volumen de un cilindro
+      // Solicitar al usuario que ingrese el radio y la altura del cilindro
+var radio = parseFloat(prompt("Ingrese el radio del cilindro en metros:"));
+var altura = parseFloat(prompt("Ingrese la altura del cilindro en metros:"));
+
+// Verificar si los valores ingresados son válidos
+if (!isNaN(radio) && !isNaN(altura) && radio > 0 && altura > 0) {
+    // Calcular el área de la base del cilindro (π * radio^2)
+    var areaBase = Math.PI * Math.pow(radio, 2);
+
+    // Calcular el área lateral del cilindro (2 * π * radio * altura)
+    var areaLateral = 2 * Math.PI * radio * altura;
+
+    // Calcular el área total del cilindro (área de la base + área lateral)
+    var areaTotal = areaBase + areaLateral;
+
+    // Calcular el volumen del cilindro (área de la base * altura)
+    var volumen = areaBase * altura;
+
+    // Mostrar los resultados en pantalla utilizando document.write()
+    document.write("El área de la base del cilindro es: " + areaBase.toFixed(2) + " metros cuadrados.<br>");
+    document.write("El área lateral del cilindro es: " + areaLateral.toFixed(2) + " metros cuadrados.<br>");
+    document.write("El área total del cilindro es: " + areaTotal.toFixed(2) + " metros cuadrados.<br>");
+    document.write("El volumen del cilindro es: " + volumen.toFixed(2) + " metros cúbicos.");
+} else {
+    // Mostrar un mensaje de error si los valores ingresados no son válidos
+    document.write("Los valores ingresados no son válidos. Por favor, ingrese valores numéricos positivos.");
+}
+      break;
+
+
+    case 7:
+      // Implementar algoritmo para calcular la longitud y el área de una circunferencia
+      // Solicitar al usuario que ingrese el radio de la circunferencia
+var radio = parseFloat(prompt("Ingrese el radio de la circunferencia en metros:"));
+
+// Definir el valor de pi
+var pi = Math.PI;
+
+// Verificar si el valor ingresado es válido
+if (!isNaN(radio) && radio > 0) {
+    // Calcular la longitud de la circunferencia (2 * pi * radio)
+    var longitud = 2 * pi * radio;
+
+    // Calcular el área de la circunferencia (pi * radio^2)
+    var area = pi * Math.pow(radio, 2);
+
+    // Mostrar los resultados en pantalla utilizando document.write()
+    document.write("La longitud de la circunferencia es: " + longitud.toFixed(2) + " metros.<br>");
+    document.write("El área de la circunferencia es: " + area.toFixed(2) + " metros cuadrados.");
+} else {
+    // Mostrar un mensaje de error si el valor ingresado no es válido
+    document.write("El valor ingresado no es válido. Por favor, ingrese un valor numérico positivo.");
+}
+      break;
+
+
+    case 8:
+      // Implementar algoritmo para calcular el promedio de tres números ingresados por teclado
+      // Solicitar al usuario que ingrese tres números
+var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+var numero3 = parseFloat(prompt("Ingrese el tercer número:"));
+
+// Verificar si los valores ingresados son válidos
+if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
+    // Calcular el promedio de los tres números
+    var promedio = (numero1 + numero2 + numero3) / 3;
+    
+    // Mostrar el resultado en pantalla utilizando document.write()
+    document.write("El promedio de los números ingresados es: " + promedio.toFixed(2));
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+      break;
+    default:
+      document.write("<h2>Opción inválida en Operadores.</h2>");
+  }
+}
+
+function condicionales() {
+  var subMenuCondicionales = "Condicionales\n"; 
+  subMenuCondicionales += "1. Saber si un número es positivo o negativo.\n";
+  subMenuCondicionales += "2. Comparar dos números y determinar cuál es mayor y cuál es menor.\n";
+  subMenuCondicionales += "3. Encontrar el menor y el mayor de tres números.\n";
+  subMenuCondicionales += "4. Sumar o restar dos números según una condición.\n";
+  subMenuCondicionales += "5. Encontrar el cociente entre dos números (manejar división por cero).\n";
+  subMenuCondicionales += "6. Sumar o multiplicar dos números según una condición.\n";
+  subMenuCondicionales += "7. Determinar si un año es bisiesto.\n";
+
+  var opcionCondicionales = parseInt(prompt(subMenuCondicionales)); 
+  switch (opcionCondicionales) {
+    case 1:
+      // Implementar algoritmo para Saber si un número es positivo o negativo
+      // Solicitar al usuario que ingrese un número
+var numero = parseFloat(prompt("Ingrese un número:"));
+
+// Verificar si el número ingresado es válido
+if (!isNaN(numero)) {
+    if (numero > 0) {
+        document.write("El número ingresado es positivo.");
+    } else if (numero < 0) {
+        document.write("El número ingresado es negativo.");
+    } else {
+        document.write("El número ingresado es cero.");
+    }
+} else {
+    // Mostrar un mensaje de error si el valor ingresado no es un número válido
+    document.write("El valor ingresado no es válido. Por favor, ingrese un número válido.");
+}
+      break;
+
+
+    case 2:
+      // Implementar algoritmo para Comparar dos números y determinar cuál es mayor y cuál es menor
+      // Solicitar al usuario que ingrese dos números
+var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+// Verificar si los números ingresados son válidos
+if (!isNaN(numero1) && !isNaN(numero2)) {
+    if (numero1 > numero2) {
+        document.write("El primer número (" + numero1 + ") es mayor que el segundo número (" + numero2 + ").");
+    } else if (numero1 < numero2) {
+        document.write("El segundo número (" + numero2 + ") es mayor que el primer número (" + numero1 + ").");
+    } else {
+        document.write("Ambos números son iguales (" + numero1 + " y " + numero2 + ").");
+    }
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+      break;
+
+
+    case 3:
+      // Implementar algoritmo para Encontrar el menor y el mayor de tres números
+    // Solicitar al usuario que ingrese tres números
+var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+var numero3 = parseFloat(prompt("Ingrese el tercer número:"));
+
+// Verificar si los números ingresados son válidos
+if (!isNaN(numero1) && !isNaN(numero2) && !isNaN(numero3)) {
+    // Encontrar el mayor de los tres números
+    var mayor = Math.max(numero1, numero2, numero3);
+    
+    // Encontrar el menor de los tres números
+    var menor = Math.min(numero1, numero2, numero3);
+
+    // Mostrar los resultados en pantalla utilizando document.write()
+    document.write("El mayor de los tres números es: " + mayor + "<br>");
+    document.write("El menor de los tres números es: " + menor);
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+      break;
+
+
+    case 4:
+      // Implementar algoritmo para Sumar o restar dos números según una condición
+      // Solicitar al usuario que ingrese dos números
+var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+// Verificar si los números ingresados son válidos
+if (!isNaN(numero1) && !isNaN(numero2)) {
+    if (numero1 < numero2) {
+        // Sumar los dos números si el primero es menor que el segundo
+        var resultado = numero1 + numero2;
+        document.write("La suma de " + numero1 + " y " + numero2 + " es: " + resultado);
+    } else {
+        // Restar los dos números si el primero no es menor que el segundo
+        var resultado = numero1 - numero2;
+        document.write("La resta de " + numero1 + " y " + numero2 + " es: " + resultado);
+    }
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+      break;
+
+
+    case 5:
+      // Implementar algoritmo para Encontrar el cociente entre dos números (manejar división por cero).
+    // Solicitar al usuario que ingrese dos números
+var dividendo = parseFloat(prompt("Ingrese el dividendo:"));
+var divisor = parseFloat(prompt("Ingrese el divisor:"));
+
+// Verificar si los números ingresados son válidos
+if (!isNaN(dividendo) && !isNaN(divisor)) {
+    if (divisor !== 0) {
+        // Calcular el cociente si el divisor es distinto de cero
+        var cociente = dividendo / divisor;
+        document.write("El cociente entre " + dividendo + " y " + divisor + " es: " + cociente);
+    } else {
+        // Manejar la división por cero
+        document.write("La división por cero no está definida. No es posible calcular el cociente.");
+    }
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+      break;
+
+      
+    case 6:
+      // Implementar algoritmo para Sumar o multiplicar dos números según una condición
+      // Solicitar al usuario que ingrese dos números
+var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+// Verificar si los números ingresados son válidos
+if (!isNaN(numero1) && !isNaN(numero2)) {
+    if (numero1 < 0 || numero2 < 0) {
+        // Sumar los dos números si al menos uno de ellos es negativo
+        var resultado = numero1 + numero2;
+        document.write("La suma de " + numero1 + " y " + numero2 + " es: " + resultado);
+    } else {
+        // Multiplicar los dos números si ambos son positivos
+        var resultado = numero1 * numero2;
+        document.write("El producto de " + numero1 + " y " + numero2 + " es: " + resultado);
+    }
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+      break;
+
+
+    case 7:
+      // Implementar algoritmo Determinar si un año es bisiesto
+      // Solicitar al usuario que ingrese un año
+var year = parseInt(prompt("Ingrese un año:"));
+
+// Verificar si el año ingresado es válido
+if (!isNaN(year)) {
+    // Verificar si el año es bisiesto
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+        document.write("El año " + year + " es bisiesto.");
+    } else {
+        document.write("El año " + year + " no es bisiesto.");
+    }
+} else {
+    // Mostrar un mensaje de error si el valor ingresado no es un número válido
+    document.write("El valor ingresado no es válido. Por favor, ingrese un año válido.");
+}
+      break;
+    default:
+      document.write("<h2>Opción inválida en Operadores.</h2>");
+  }
+}
+
+
+function ciclos() {
+  var subMenuCiclos = "Ciclos\n"; 
+  subMenuCiclos += "1. Imprimir múltiplos de 3 entre 1 y 100.\n";
+  subMenuCiclos += "2. Imprimir números impares entre 0 y 100.\n";
+  subMenuCiclos += "3. Imprimir números pares entre 1 y 100.\n";
+  subMenuCiclos += "4. Imprimir los cuadrados de los números del 1 al 30.\n";
+  subMenuCiclos += "5. Sumar los cuadrados de los cien primeros números naturales.\n";
+  subMenuCiclos += "6. Generar y mostrar números entre dos números dados.\n";
+  subMenuCiclos += "7. Sumar números ingresados por teclado hasta que se ingrese cero.\n";
+
+  var opcionCiclos = parseInt(prompt(subMenuCiclos)); 
+  switch (opcionCiclos) {
+    case 1:
+    // Implementar algoritmo para Imprimir múltiplos de 3 entre 1 y 100
+    // Iterar sobre los números del 1 al 100
+for (var i = 1; i <= 100; i++) {
+  // Verificar si el número es múltiplo de 3
+  if (i % 3 === 0) {
+      // Imprimir el número si es múltiplo de 3
+      document.write(i + "<br>");
+  }
+}
+    break;
+
+
+  case 2:
+    // Implementar algoritmo para Imprimir números impares entre 0 y 100.
+    // Iterar sobre los números del 0 al 100
+for (var i = 1; i <= 100; i += 2) {
+  // Imprimir el número si es impar
+  document.write(i + "<br>");
+}
+    break;
+
+    
+  case 3:
+    // Implementar algoritmo para Imprimir números pares entre 1 y 100
+    // Iterar sobre los números del 1 al 100
+for (var i = 2; i <= 100; i += 2) {
+  // Imprimir el número si es par
+  document.write(i + "<br>");
+}
+    break;
+
+
+  case 4:
+    // Implementar algoritmo para Imprimir los cuadrados de los números del 1 al 30
+    // Iterar sobre los números del 1 al 30
+for (var i = 1; i <= 30; i++) {
+  // Calcular el cuadrado de cada número
+  var cuadrado = i * i;
+  // Imprimir el cuadrado de cada número
+  document.write("El cuadrado de " + i + " es: " + cuadrado + "<br>");
+}
+break;
+ 
+
+  case 5:
+    // Implementar algoritmo para Sumar los cuadrados de los cien primeros números naturales
+    // Variable para almacenar la suma de los cuadrados
+var sumaCuadrados = 0;
+
+// Iterar sobre los números del 1 al 100
+for (var i = 1; i <= 100; i++) {
+    // Calcular el cuadrado de cada número y sumarlo a la variable sumaCuadrados
+    sumaCuadrados += i * i;
+}
+
+// Mostrar la suma de los cuadrados en la página
+document.write("La suma de los cuadrados de los cien primeros números naturales es: " + sumaCuadrados);
+    break;
+
+
+  case 6:
+    // Implementar algoritmo para Generar y mostrar números entre dos números dado
+    // Solicitar al usuario que ingrese dos números
+var numero1 = parseInt(prompt("Ingrese el primer número:"));
+var numero2 = parseInt(prompt("Ingrese el segundo número:"));
+
+// Verificar si los números ingresados son válidos
+if (!isNaN(numero1) && !isNaN(numero2)) {
+    // Determinar el número menor y mayor entre los dos números ingresados
+    var menor = Math.min(numero1, numero2);
+    var mayor = Math.max(numero1, numero2);
+
+    // Iterar sobre los números entre el menor y el mayor
+    for (var i = menor; i <= mayor; i++) {
+        // Mostrar cada número en la página
+        document.write(i + "<br>");
+    }
+} else {
+    // Mostrar un mensaje de error si alguno de los valores ingresados no es un número válido
+    document.write("Uno o más valores ingresados no son válidos. Por favor, ingrese valores numéricos.");
+}
+    break;
+
+
+  case 7:
+    // Implementar algoritmo para Sumar números ingresados por teclado hasta que se ingrese cero
+  // Variable para almacenar la suma
+var suma = 0;
+
+// Iterar hasta que se ingrese cero
+while (true) {
+    // Solicitar al usuario que ingrese un número
+    var numero = parseFloat(prompt("Ingrese un número (ingrese 0 para terminar):"));
+
+    // Verificar si el número ingresado es válido
+    if (!isNaN(numero)) {
+        // Salir del bucle si se ingresa cero
+        if (numero === 0) {
+            break;
+        }
+        // Sumar el número ingresado a la suma total
+        suma += numero;
+    } else {
+        // Mostrar un mensaje de error si el valor ingresado no es un número válido
+        document.write("El valor ingresado no es válido. Por favor, ingrese un número válido.<br>");
+    }
+}
+
+// Mostrar la suma total en la página
+document.write("La suma de los números ingresados es: " + suma);
+
+    break;
+  default:
+    document.write("<h2>Opción inválida en Operadores.</h2>");
+}
+}
+
+</script> 
+
+</body>
+</html>
